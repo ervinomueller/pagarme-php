@@ -9,7 +9,13 @@ PHP integration for [Pagar.me  API](https://docs.pagar.me/api/)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/4c34cc13-e52f-492e-a2f2-dbcd398135a2/mini.png)](https://insight.sensiolabs.com/projects/4c34cc13-e52f-492e-a2f2-dbcd398135a2)
 [![Coverage Status](https://coveralls.io/repos/github/pagarme/pagarme-php/badge.svg?branch=V3)](https://coveralls.io/github/pagarme/pagarme-php?branch=V3)
 
-## ANNOUNCEMENT: this fork was made to add fields that the original sdk does not support yet
+<br>
+<br>
+
+## ANNOUNCEMENT: this fork was made to add fields that the original sdk does not support yet (2018-11-15)
+
+<br>
+<br>
 
 ## Installation
 Via Composer
