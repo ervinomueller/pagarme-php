@@ -27,16 +27,6 @@ class Customer
     private $dateCreated;
 
     /**
-     * @var int
-     */
-    private $documentNumber;
-
-    /**
-     * @var string
-     */
-    private $documentType;
-
-    /**
      * @var string
      */
     private $email;
@@ -52,9 +42,14 @@ class Customer
     private $name;
 
     /**
-     * @var PagarMe\Sdk\Customer\Phone
+     * @var array
      */
-    private $phone;
+    private $phoneNumbers;
+
+    /**
+     * @var PagarMe\Sdk\Customer\Document
+     */
+    private $documents;
 
     /**
      * @var string
@@ -65,6 +60,11 @@ class Customer
      * @var string
      */
     private $type;
+
+    /**
+     * @var string
+     */
+    private $country;
 
     /**
      * @param array $arrayData
@@ -90,15 +90,6 @@ class Customer
     public function getBornAt()
     {
         return $this->bornAt;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     * @return int
-     */
-    public function getDocumentNumber()
-    {
-        return $this->documentNumber;
     }
 
     /**
@@ -136,31 +127,32 @@ class Customer
     {
         return $this->externalId;
     }
-    /**
-     * @codeCoverageIgnore
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @codeCoverageIgnore
      * @return string
      */
-    public function getAddress()
+    public function getCountry()
     {
-        return $this->address;
+        return $this->country;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @return array
+     */
+    public function getPhoneNumbers()
+    {
+        return $this->phoneNumbers;
     }
 
     /**
      * @codeCoverageIgnore
      * @return object
      */
-    public function getPhone()
+    public function getDocuments()
     {
-        return $this->phone;
+        return $this->documents;
     }
 
     /**
@@ -170,14 +162,5 @@ class Customer
     public function getDateCreated()
     {
         return $this->dateCreated;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     * @return string
-     */
-    public function getDocumentType()
-    {
-        return $this->documentType;
     }
 }

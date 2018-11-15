@@ -3,12 +3,9 @@
 namespace PagarMe\Sdk\Customer;
 
 use PagarMe\Sdk\AbstractHandler;
-use PagarMe\Sdk\Client;
 use PagarMe\Sdk\Customer\Request\CustomerCreate;
 use PagarMe\Sdk\Customer\Request\CustomerGet;
 use PagarMe\Sdk\Customer\Request\CustomerList;
-use PagarMe\Sdk\Customer\Address;
-use PagarMe\Sdk\Customer\Phone;
 
 class CustomerHandler extends AbstractHandler
 {
@@ -18,12 +15,10 @@ class CustomerHandler extends AbstractHandler
      * @param $externalId
      * @param string $name
      * @param string $email
-     * @param int $documentNumber
-     * @param Address $address
-     * @param Phone $phone
+     * @param Document $document
+     * @param $phones
+     * @param string $country
      * @param string $type
-     * @param string $bornAt
-     * @param string $gender
      * @return Customer
      * @throws \PagarMe\Sdk\ClientException
      */
@@ -31,24 +26,20 @@ class CustomerHandler extends AbstractHandler
         $externalId,
         $name,
         $email,
-        $documentNumber,
-        Address $address,
-        Phone $phone,
-        $type = 'individual',
-        $bornAt = null,
-        $gender = null
+        Document $document,
+        $phones,
+        $country = 'br',
+        $type = 'individual'
     )
     {
         $request = new CustomerCreate(
             $externalId,
             $name,
             $email,
-            $documentNumber,
-            $address,
-            $phone,
-            $type,
-            $bornAt,
-            $gender
+            $document,
+            $phones,
+            $country,
+            $type
         );
 
         $response = $this->client->send($request);

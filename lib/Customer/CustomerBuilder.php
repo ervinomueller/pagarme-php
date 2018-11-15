@@ -20,6 +20,10 @@ trait CustomerBuilder
             $customerData->phone = new Phone($customerData->phones[0]);
         }
 
+        if (count($customerData->documents) > 0) {
+            $customerData->documents = new Document($customerData->documents[0]);
+        }
+
         $customerData->date_created = new \DateTime(
             $customerData->date_created
         );
@@ -29,6 +33,8 @@ trait CustomerBuilder
 
     /**
      * @param array $customerData
+     * @param $addressData
+     * @param $phoneData
      * @return Customer
      */
     private function buildCustomerFromResponse($customerData, $addressData, $phoneData)
