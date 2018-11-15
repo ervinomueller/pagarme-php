@@ -15,29 +15,38 @@ class CustomerHandler extends AbstractHandler
     use CustomerBuilder;
 
     /**
+     * @param $externalId
      * @param string $name
      * @param string $email
      * @param int $documentNumber
      * @param Address $address
      * @param Phone $phone
+     * @param string $type
      * @param string $bornAt
      * @param string $gender
+     * @return Customer
+     * @throws \PagarMe\Sdk\ClientException
      */
     public function create(
+        $externalId,
         $name,
         $email,
         $documentNumber,
         Address $address,
         Phone $phone,
+        $type = 'individual',
         $bornAt = null,
         $gender = null
-    ) {
+    )
+    {
         $request = new CustomerCreate(
+            $externalId,
             $name,
             $email,
             $documentNumber,
             $address,
             $phone,
+            $type,
             $bornAt,
             $gender
         );
@@ -49,10 +58,12 @@ class CustomerHandler extends AbstractHandler
 
     /**
      * @param int $customerId
+     * @return Customer
+     * @throws \PagarMe\Sdk\ClientException
      */
     public function get($customerId)
     {
-        $request = new CustomerGet($customerId);
+        $request  = new CustomerGet($customerId);
         $response = $this->client->send($request);
 
         return $this->buildCustomer($response);
@@ -61,10 +72,12 @@ class CustomerHandler extends AbstractHandler
     /**
      * @param int $page
      * @param int $count
+     * @return array
+     * @throws \PagarMe\Sdk\ClientException
      */
     public function getList($page = null, $count = null)
     {
-        $request = new CustomerList($page, $count);
+        $request  = new CustomerList($page, $count);
         $response = $this->client->send($request);
 
         $customers = [];

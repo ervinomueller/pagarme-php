@@ -57,6 +57,16 @@ class Customer
     private $phone;
 
     /**
+     * @var string
+     */
+    private $externalId;
+
+    /**
+     * @var string
+     */
+    private $type;
+
+    /**
      * @param array $arrayData
      */
     public function __construct($arrayData)
@@ -116,6 +126,23 @@ class Customer
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @return string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+    /**
+     * @codeCoverageIgnore
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
